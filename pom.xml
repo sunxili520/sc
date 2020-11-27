@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kyoxue</groupId>
+    <artifactId>rms-root</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rms-common</module>
+        <module>rms-product</module>
+        <module>rms-index</module>
+        <module>rms-eureka</module>
+    </modules>
+
+    <!-- spring boot parent 2.1.6.release version -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+
+    <properties>
+        <!-- 工程构建资源编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 工程编译输出编码 -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- jdk版本 -->
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- lombok依赖，必须先通过setting plugins安装lombok插件，同时要开启注解处理器; -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- dependencyManagement统一的依赖版本管理，仅是对版本管理;
+        子module通过parent继承当前父工程后，如果依赖在这有添加，则直接依赖不用写版本号;
+        注意父工程type必须是pom而不是jar;
+        scope=import表示子module可以不用parent继承，而直接依赖，同样不用写版本号;-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 远程仓库信息 -->
+    <repositories>
+        <!-- 可以到个repository-->
+        <repository>
+            <id>spring-milestones</id><!-- 每个仓库的唯一id -->
+            <name>spring Milestones</name><!-- 仓库的描述 -->
+            <url>https://repo.spring.io/milestone</url><!-- 仓库地址 -->
+            <!-- 禁止从公共仓库下载snapshot构件是推荐的做法，因为这些构件不稳定，且不受你控制，你应该避免使用。
+            当然，如果你想使用局域网内组织内部的仓库，你可以激活snapshot的支持 -->
+            <!-- 告诉Maven不要从这个仓库下载snapshot版本的构件 -->
+            <snapshots><enabled>false</enabled></snapshots>
+            <!-- 用于定位和排序构件的仓库布局类型-可以是default（默认）或者legacy（遗留）。
+            Maven 2为其仓库提供了一个默认的布局；
+            然而，Maven 1.x有一种不同的布局。
+            我们可以使用该元素指定布局是default（默认）还是legacy（遗留）。 -->
+            <!--<layout>default</layout>-->
+            <!-- 告诉Maven可以从这个仓库下载releases版本的构件 -->
+            <!--<releases><enabled>true</enabled></releases>-->
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <!-- 为spring boot提供maven操作，打包成可执行的jar或war -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

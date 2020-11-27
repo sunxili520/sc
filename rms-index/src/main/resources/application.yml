@@ -1,0 +1,11 @@
+server:
+  port: 8081
+#应用名称定义，同时也是在eureka注册中心展示的名称
+spring:
+  application:
+    name: rms-index
+#商品客户端注册到eureka注册中心的服务器地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9080/eureka/

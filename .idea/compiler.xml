@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="rms-common" />
+        <module name="rms-eureka" />
+        <module name="rms-index" />
+        <module name="rms-product" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="rms-common" target="1.8" />
+      <module name="rms-eureka" target="1.8" />
+      <module name="rms-index" target="1.8" />
+      <module name="rms-product" target="1.8" />
+      <module name="rms-root" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
