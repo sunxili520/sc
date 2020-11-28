@@ -21,8 +21,8 @@ import java.util.List;
 @RequestMapping("index")
 public class IndexController {
 
-    /*@Autowired
-    private RestTemplate restTemplate;*/
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Autowired
     private IProductApi productApi;

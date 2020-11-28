@@ -17,3 +17,7 @@ RMS-PRODUCT:
     #随机 RandomRule
     #最佳策略  过滤挂的服务器，并且返回请求数少的实例 BestAvailableRule
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    #restTemplate开启对所有操作进行重试连接
+    #OkToRetryOnAllOperations: true
+    #切换实例目标，重试的次数
+    #MaxAutoRetriesNextServer: 2

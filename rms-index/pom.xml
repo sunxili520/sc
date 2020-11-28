@@ -29,5 +29,14 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- spring的重试机制依赖
+            其中某个集群服务器停了或者坏了，系统重试调用当前OK的服务器
+            reign默认实现了重试机制，不需要我们去配置
+            如果用restTemplate去访问微服务接口，则需要手动配置重试机制
+         -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
     </dependencies>
 </project>
