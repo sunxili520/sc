@@ -39,6 +39,12 @@ eureka:
     hostname: localhost1
     #指向上面定义的application name
     appname: eureka-server
+    #以下保护机制时间设置，enable-self-preservation
+    #间隔多少秒去抓取服务列表
+    #lease-renewal-interval-in-seconds: 30
+    #每个30秒（默认）会执行一次心跳（客户端-注册中心）（交互2次，发送和接收）
+    #3次（90）都失败的话，服务将被注册中心抛弃
+    #lease-expiration-duration-in-seconds: 90
   client:
     service-url:
       #互相注册，注意端口9081是下面eurekaServer2的端口
@@ -57,6 +63,8 @@ eureka:
     hostname: localhost2
     #指向上面定义的application name
     appname: eureka-server
+    #lease-renewal-interval-in-seconds: 30
+    #lease-expiration-duration-in-seconds: 90
   client:
     service-url:
       #互相注册，注意端口9080是上面eurekaServer1的端口
