@@ -16,8 +16,12 @@ RMS-PRODUCT:
     #轮训 RoundRobinRule
     #随机 RandomRule
     #最佳策略  过滤挂的服务器，并且返回请求数少的实例 BestAvailableRule
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule
     #restTemplate开启对所有操作进行重试连接
     #OkToRetryOnAllOperations: true
     #切换实例目标，重试的次数
     #MaxAutoRetriesNextServer: 2
+#让feign调用微服务支持熔断
+feign:
+  hystrix:
+    enabled: true

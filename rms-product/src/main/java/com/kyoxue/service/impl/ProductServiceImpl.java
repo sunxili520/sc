@@ -24,6 +24,8 @@ public class ProductServiceImpl implements IProductService{
     private String serverPort;
     @Override
     public List<Product> list() throws Exception {
+        //设置1秒睡眠，模拟服务1秒超时，导致熔断生效
+        //Thread.sleep(1000);
         log.info(serverPort);
         List<Product> list = new ArrayList<>(0);
         list.add(new Product(1l,"这是第一个商品...",new BigDecimal(100)));

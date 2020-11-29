@@ -38,5 +38,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-retry</artifactId>
         </dependency>
+        <!-- 熔断依赖
+            防止被调服务方时间过长或者坏了，导致调用方资源耗尽，甚至再往上的调用方都耗尽，导致雪崩效应
+         -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
     </dependencies>
 </project>
