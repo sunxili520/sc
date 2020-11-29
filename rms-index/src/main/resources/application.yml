@@ -22,6 +22,9 @@ RMS-PRODUCT:
     #切换实例目标，重试的次数
     #MaxAutoRetriesNextServer: 2
 #让feign调用微服务支持熔断
+#隔离 本来全心全意花全部精力去调这个服务的，现在开启线程池，只划分部分线程去调这个服务
+#熔断  超过设置的时间就直接返回默认的fallback方案，进行提示或者返回默认操作或信息等
+#hystrix默认超时1秒，这也是最佳方案设置
 feign:
   hystrix:
     enabled: true
