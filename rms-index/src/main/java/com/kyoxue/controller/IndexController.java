@@ -1,6 +1,6 @@
 package com.kyoxue.controller;
 
-import com.kyoxue.api.IProductApi;
+import com.kyoxue.ini.IProductApi;
 import com.kyoxue.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,17 +21,17 @@ import java.util.List;
 @RequestMapping("index")
 public class IndexController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private RestTemplate restTemplate;
 
     @Autowired
-    private IProductApi productApi;
+    private IProductApi productApiDetail;
 //    private final static String PRODUCT_URL = "http://RMS-PRODUCT/product/list";
     @RequestMapping("show")
     @ResponseBody
     public List<Product> show(){
         try {
-            return productApi.getProducts();
+            return productApiDetail.getProducts();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

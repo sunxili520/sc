@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/rms-common/rms-common.iml" filepath="$PROJECT_DIR$/rms-common/rms-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/rms-eureka/rms-eureka.iml" filepath="$PROJECT_DIR$/rms-eureka/rms-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rms-feign/rms-feign.iml" filepath="$PROJECT_DIR$/rms-feign/rms-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/rms-index/rms-index.iml" filepath="$PROJECT_DIR$/rms-index/rms-index.iml" />
       <module fileurl="file://$PROJECT_DIR$/rms-product/rms-product.iml" filepath="$PROJECT_DIR$/rms-product/rms-product.iml" />
       <module fileurl="file://$PROJECT_DIR$/rms-root.iml" filepath="$PROJECT_DIR$/rms-root.iml" />

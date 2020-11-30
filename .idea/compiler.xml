@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rms-common" />
         <module name="rms-eureka" />
+        <module name="rms-feign" />
         <module name="rms-index" />
         <module name="rms-product" />
       </profile>
@@ -16,6 +17,7 @@
     <bytecodeTargetLevel>
       <module name="rms-common" target="1.8" />
       <module name="rms-eureka" target="1.8" />
+      <module name="rms-feign" target="1.8" />
       <module name="rms-index" target="1.8" />
       <module name="rms-product" target="1.8" />
       <module name="rms-root" target="1.8" />

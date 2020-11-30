@@ -24,26 +24,21 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- 注册中心接口地址，通过feign实现接口方式访问，伪RPC -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+
         <!-- spring的重试机制依赖
             其中某个集群服务器停了或者坏了，系统重试调用当前OK的服务器
             reign默认实现了重试机制，不需要我们去配置
             如果用restTemplate去访问微服务接口，则需要手动配置重试机制
          -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-retry</artifactId>-->
+        <!--</dependency>-->
+
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-retry</artifactId>
-        </dependency>
-        <!-- 熔断依赖
-            防止被调服务方时间过长或者坏了，导致调用方资源耗尽，甚至再往上的调用方都耗尽，导致雪崩效应
-         -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <groupId>com.kyoxue</groupId>
+            <artifactId>rms-feign</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

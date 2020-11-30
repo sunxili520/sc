@@ -1,9 +1,10 @@
-package com.kyoxue.api.impl;
+package com.kyoxue.ini.detail;
 
-import com.kyoxue.api.IProductApi;
+import com.kyoxue.ini.IProductApi;
 import com.kyoxue.entity.Product;
 import com.kyoxue.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,8 @@ import java.util.List;
  * @date 2020/11/29
  */
 @Service
-public class ProductService implements IProductApi{
+@Qualifier("productApiDetail")
+public class ProductApiDetail implements IProductApi{
 
     @Autowired
     private IProductService productService;

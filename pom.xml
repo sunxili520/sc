@@ -13,6 +13,7 @@
         <module>rms-product</module>
         <module>rms-index</module>
         <module>rms-eureka</module>
+        <module>rms-feign</module>
     </modules>
 
     <!-- spring boot parent 2.1.6.release version -->

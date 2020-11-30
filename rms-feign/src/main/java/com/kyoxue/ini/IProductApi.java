@@ -1,7 +1,8 @@
-package com.kyoxue.api;
+package com.kyoxue.ini;
 
 import com.kyoxue.entity.Product;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,20 @@ import java.util.List;
  * @description com.kyoxue.api
  * @date 2020/11/29
  */
+//注意：因为这里IProductApi接口有个实现类ProductApiDetail同时又在接口内部写了静态实现类_productHystrixCallback
+//这里就需要注意在autoware调用的时候，得在2个实现类上分别通过Qualifier指定别名
+//否则会报there is more than one bean of IProductApi type
+//所以这里解决方案：
+// _productHystrixCallback内部类上加了
+// @Component
+// @Qualifier("productHystrixCallback")
+
+// ProductApiDetail上加了
+// @Service
+// @Qualifier("productApiDetail")
+
+// autoware调用的时候变量名使用Qualifier的名称
+
 @FeignClient(name = "RMS-PRODUCT",fallback = IProductApi._productHystrixCallback.class)
 public interface IProductApi {
 
@@ -25,6 +40,7 @@ public interface IProductApi {
     //这个内部类是熔断后的回调类，用来对坏掉的服务做补充，比如可以记录日志，返回默认数据，执行默认功能能。
     //定义完内部类，需要在FeignClient注解中设置fallback=这个回调类，见上面
     @Component
+    @Qualifier("productHystrixCallback")
     @Slf4j
     static class _productHystrixCallback implements IProductApi{
 

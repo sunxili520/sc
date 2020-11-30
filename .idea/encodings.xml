@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rms-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rms-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rms-feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rms-index" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rms-product" charset="UTF-8" />
   </component>
